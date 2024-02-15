@@ -5,7 +5,7 @@ export default function About() {
   return (
     <div className="max-w-[512px] mx-auto p-10 bg-white rounded-lg">
       <Head>
-        <title>Inpainting with Stable Diffusion &amp; Replicate</title>
+        <title>Inpainting with Stable Diffusion XL &amp; Replicate</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       {/* <h1 className="text-center text-7xl pb-3">🎨</h1> */}
@@ -20,7 +20,7 @@ export default function About() {
           className="underline"
           href="https://replicate.com/stability-ai/stable-diffusion"
         >
-          Stable Diffusion
+          Stable Diffusion XL
         </a>{" "}
         machine learning model and{" "}
         <a className="underline" href="https://replicate.com">

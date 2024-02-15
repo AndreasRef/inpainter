@@ -8,9 +8,15 @@ export default class Canvas extends React.Component {
     super(props);
 
     this.canvas = React.createRef();
+    this.state = {
+      canvasBgColor: 'transparent', // Initial background color
+    };
   }
 
   onChange = async () => {
+    // Set canvas background to black before sending to API
+    this.setState({ canvasBgColor: 'black' });
+
     const paths = await this.canvas.current.exportPaths();
 
     // only respond if there are paths to draw (don't want to send a blank canvas)
@@ -18,6 +24,9 @@ export default class Canvas extends React.Component {
       const data = await this.canvas.current.exportImage("svg");
       this.props.onDraw(data);
     }
+
+    // Set canvas background back to transparent after sending
+    this.setState({ canvasBgColor: 'transparent' });
   };
 
   render() {
@@ -82,8 +91,8 @@ export default class Canvas extends React.Component {
               <ReactSketchCanvas
                 ref={this.canvas}
                 strokeWidth={80}
-                strokeColor="black"
-                canvasColor="transparent"
+                strokeColor="white"
+                canvasColor={this.state.canvasBgColor} // Use state for canvas background
                 onChange={this.onChange}
               />
             </div>
